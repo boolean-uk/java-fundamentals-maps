@@ -4,6 +4,7 @@ import com.booleanuk.helpers.ExerciseBase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.stream.Collectors;
 
 public class Exercise extends ExerciseBase {
     /*
@@ -71,7 +72,9 @@ public class Exercise extends ExerciseBase {
          The method must use the string provided to return the integer contained in the provided HashMap,
          or -1 if the string provided is not a key in the HashMap
      */
-
+    public int getValueOrDefault(HashMap<String, Integer> map, String str) {
+        return map.getOrDefault(str, -1);
+    }
 
 
     /*
@@ -95,11 +98,9 @@ public class Exercise extends ExerciseBase {
         // Write your code below this comment...
 
 
-
-
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return new ArrayList<String>(numbers.stream().map(k -> map.getOrDefault(k, "")).filter(r -> r != "").collect(Collectors.toList()));
     }
 }

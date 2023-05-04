@@ -48,7 +48,7 @@ public class Exercise extends ExerciseBase {
          in the createPerson method
      */
 
-
+    public String getValue(String key) { return createPerson().get(key); }
 
     /*
         TODO: 2. Create a method named hasKey that accepts two parameters:
@@ -58,7 +58,7 @@ public class Exercise extends ExerciseBase {
          in the provided HashMap
      */
 
-
+    public boolean hasKey(HashMap<String, String> map, String string) { return map.containsKey(string); }
 
     /*
         TODO: 3. Create a method named getValueOrDefault that accepts two parameters:

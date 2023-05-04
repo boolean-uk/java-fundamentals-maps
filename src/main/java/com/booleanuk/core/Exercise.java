@@ -47,7 +47,9 @@ public class Exercise extends ExerciseBase {
          The method must return the value associated to the provided key from the HashMap created
          in the createPerson method
      */
-
+    public String getValue(String key){
+        return createPerson().get(key);
+    }
 
 
     /*
@@ -56,7 +58,10 @@ public class Exercise extends ExerciseBase {
          - A string
          The method must return a boolean that represents whether the string provided exists as a key
          in the provided HashMap
-     */
+     */public boolean hasKey(HashMap<String, String> map, String name){
+         return map.containsKey(name);
+
+    }
 
 
 

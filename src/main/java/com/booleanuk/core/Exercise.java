@@ -97,10 +97,9 @@ public class Exercise extends ExerciseBase {
         map.put(96, "nice");
         // Write your code below this comment...
 
-
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>(numbers.stream().map(k -> map.getOrDefault(k, "")).filter(r -> r != "").collect(Collectors.toList()));
+        return new ArrayList<String>(numbers.stream().map(k -> map.getOrDefault(k, "")).filter(r -> !r.equals("")).collect(Collectors.toList()));
     }
 }

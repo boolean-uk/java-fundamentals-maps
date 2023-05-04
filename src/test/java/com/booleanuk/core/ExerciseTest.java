@@ -22,7 +22,7 @@ class ExerciseTest {
 
     @Test
     public void shouldHaveKey() {
-        HashMap<String, String> map = new HashMap<>(){{
+        HashMap<String, String> map = new HashMap<String, String>(){{
             put("name", "Joe");
             put("vocation", "Artist");
         }};
@@ -33,7 +33,7 @@ class ExerciseTest {
 
     @Test
     public void shouldDefault() {
-        HashMap<String, Integer> map = new HashMap<>(){{
+        HashMap<String, Integer> map = new HashMap<String, Integer>(){{
             put("age", 32);
             put("heightFeet", 6);
         }};
@@ -45,7 +45,7 @@ class ExerciseTest {
 
     @Test
     public void shouldBuildSecret() {
-        ArrayList<Integer> list1 = new ArrayList<>(){{
+        ArrayList<Integer> list1 = new ArrayList<Integer>(){{
             add(42);
             add(6712);
             add(7);
@@ -56,7 +56,7 @@ class ExerciseTest {
         Assertions.assertEquals("bass", result1.get(1));
         Assertions.assertEquals("muse", result1.get(2));
 
-        ArrayList<Integer> list2 = new ArrayList<>(){{
+        ArrayList<Integer> list2 = new ArrayList<Integer>(){{
             add(23);
             add(19);
             add(96);
@@ -70,7 +70,7 @@ class ExerciseTest {
         Assertions.assertEquals("chicken", result2.get(2));
         Assertions.assertEquals("soup", result2.get(3));
 
-        ArrayList<Integer> list3 = new ArrayList<>(){{
+        ArrayList<Integer> list3 = new ArrayList<Integer>(){{
             add(918);
             add(71);
             add(88);

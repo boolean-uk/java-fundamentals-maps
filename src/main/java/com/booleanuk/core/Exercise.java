@@ -73,6 +73,9 @@ public class Exercise extends ExerciseBase {
          or -1 if the string provided is not a key in the HashMap
      */
 
+    public int getValueOrDefault(HashMap<String, Integer> map, String key){
+        return (null != map.get(key) ? map.get(key) : -1);
+    }
 
 
     /*
@@ -95,12 +98,15 @@ public class Exercise extends ExerciseBase {
         map.put(96, "nice");
         // Write your code below this comment...
 
-
-
+        ArrayList<String> values = new ArrayList<>();
+        for(int num: numbers){
+            String val = map.get(num);
+            if(val != null) values.add(val);
+        }
 
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return values;
     }
 }

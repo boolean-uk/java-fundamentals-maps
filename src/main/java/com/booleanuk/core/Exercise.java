@@ -5,6 +5,7 @@ import com.booleanuk.helpers.ExerciseBase;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 public class Exercise extends ExerciseBase {
     /*
         The final fundamental building block of Java is a Map. There is still much to learn about the language,
@@ -47,8 +48,9 @@ public class Exercise extends ExerciseBase {
          The method must return the value associated to the provided key from the HashMap created
          in the createPerson method
      */
-
-
+    public String getValue(String key) {
+        return createPerson().get(key);
+    }
 
     /*
         TODO: 2. Create a method named hasKey that accepts two parameters:
@@ -57,7 +59,9 @@ public class Exercise extends ExerciseBase {
          The method must return a boolean that represents whether the string provided exists as a key
          in the provided HashMap
      */
-
+public boolean hasKey(HashMap<String, String> keyValue, String string1) {
+    return keyValue.containsKey(string1);
+}
 
 
     /*
@@ -67,7 +71,13 @@ public class Exercise extends ExerciseBase {
          The method must use the string provided to return the integer contained in the provided HashMap,
          or -1 if the string provided is not a key in the HashMap
      */
-
+    public int getValueOrDefault(HashMap<String, Integer> map, String str) {
+        if (map.containsKey(str)) {
+            return map.get(str);
+        } else {
+            return -1;
+        }
+    }
 
 
     /*
@@ -90,12 +100,30 @@ public class Exercise extends ExerciseBase {
         map.put(96, "nice");
         // Write your code below this comment...
 
+        /*  public Book searchForBook(int year) {
+        for (Book book : books) {
+            if (book.year == year) {
+                return book;
+            }
+        }
+        return null;
+        */
+        ArrayList<String> result = new ArrayList<>();
+// . size is the same as .length as in js
+        for (int i=0; i< numbers.size(); i++) { // [42, 6712, 7]
+            int key = numbers.get(i);
+            if (map.containsKey(key)) {  // if map contains a key = 42
+                String value = map.get(key); // get value (key = 42)
+                result.add(value); // add the value to the result
+//                return new ArrayList<String>();
 
+            }
+        }
 
 
         // ...and above this comment
-
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return result;
+
     }
 }

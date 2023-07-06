@@ -11,7 +11,7 @@ public class ExerciseBase {
         return false;
     }
 
-    public int getValueOrDefault(HashMap<String,Integer> map, String theKey) {
+    public int getValueOrDefault(HashMap<String, Integer> map, String theKey) {
         return -2;
     }
 

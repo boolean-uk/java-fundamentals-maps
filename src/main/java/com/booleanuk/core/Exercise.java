@@ -71,6 +71,9 @@ public class Exercise extends ExerciseBase {
          The method must use the string provided to return the integer contained in the provided HashMap,
          or -1 if the string provided is not a key in the HashMap
      */
+    public int getValueOrDefault(HashMap<String, Integer> map, String key){
+        return map.getOrDefault(key,-1);
+    }
 
 
 
@@ -94,12 +97,20 @@ public class Exercise extends ExerciseBase {
         map.put(96, "nice");
         // Write your code below this comment...
 
+        ArrayList<String> secretPhrase = new ArrayList<>();
+        for (Integer number : numbers){
+            String word = map.get(number);
+            if (word != null){
+                secretPhrase.add(word);
+            }
+        }
+
 
 
 
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return secretPhrase;
     }
 }

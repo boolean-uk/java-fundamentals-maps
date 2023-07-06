@@ -58,7 +58,9 @@ public class Exercise extends ExerciseBase {
          in the provided HashMap
      */
 
-
+    public boolean hasKey(HashMap<String, String> hashMap, String string){
+        return hashMap.containsKey(string);
+    }
 
     /*
         TODO: 3. Create a method named getValueOrDefault that accepts two parameters:
@@ -68,7 +70,9 @@ public class Exercise extends ExerciseBase {
          or -1 if the string provided is not a key in the HashMap
      */
 
-
+    public int getValueOrDefault(HashMap<String, Integer> hashMap, String string) {
+        return hashMap.getOrDefault(string, -1);
+    }
 
     /*
         TODO: 4. Complete the method below

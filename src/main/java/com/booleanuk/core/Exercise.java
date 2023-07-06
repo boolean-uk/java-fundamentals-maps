@@ -47,9 +47,9 @@ public class Exercise extends ExerciseBase {
          The method must return the value associated to the provided key from the HashMap created
          in the createPerson method
      */
-
-
-
+    public String getValue(String key){
+        return createPerson().get(key);
+    }
     /*
         TODO: 2. Create a method named hasKey that accepts two parameters:
          - A HashMap of String, String key value pairs
@@ -73,7 +73,13 @@ public class Exercise extends ExerciseBase {
          The method must use the string provided to return the integer contained in the provided HashMap,
          or -1 if the string provided is not a key in the HashMap
      */
-
+    public int getValueOrDefault(HashMap<String,Integer> inputHashmap, String inputString){
+        int result = -1;
+        if (inputHashmap.containsKey(inputString)){
+            result = inputHashmap.get(inputString);
+        }
+        return result;
+    }
 
 
     /*

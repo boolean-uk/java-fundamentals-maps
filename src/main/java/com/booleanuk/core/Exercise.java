@@ -96,13 +96,15 @@ public class Exercise extends ExerciseBase {
         map.put(7, "muse");
         map.put(96, "nice");
         // Write your code below this comment...
-
-
-
-
+        ArrayList<String> arr = new ArrayList<>();
+        for (int i=0;i<numbers.size();i++){
+            if(map.containsKey(numbers.get(i))) {
+                arr.add(map.get(numbers.get(i)));
+            }
+        }
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return arr;
     }
 }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Exercise extends ExerciseBase {
+
     /*
         The final fundamental building block of Java is a Map. There is still much to learn about the language,
         but this component will allow you to start building lots of more complex pieces of software.
@@ -47,7 +48,11 @@ public class Exercise extends ExerciseBase {
          The method must return the value associated to the provided key from the HashMap created
          in the createPerson method
      */
-
+    public String getValue(String key) {
+        HashMap<String, String> person = createPerson();
+        if (person.containsKey(key)) return person.get(key);
+        else return null;
+    }
 
 
     /*
@@ -57,6 +62,10 @@ public class Exercise extends ExerciseBase {
          The method must return a boolean that represents whether the string provided exists as a key
          in the provided HashMap
      */
+    public boolean hasKey(HashMap<String, String> map, String key) {
+        if (map.containsKey(key)) return true;
+        else return false;
+    }
 
 
 
@@ -68,7 +77,9 @@ public class Exercise extends ExerciseBase {
          or -1 if the string provided is not a key in the HashMap
      */
 
-
+    public int getValueOrDefault(HashMap<String, Integer> map, String key) {
+        if(map.containsKey(key)) return map.get(key);else return -1;
+    }
 
     /*
         TODO: 4. Complete the method below
@@ -90,12 +101,17 @@ public class Exercise extends ExerciseBase {
         map.put(96, "nice");
         // Write your code below this comment...
 
-
-
+        ArrayList<String> secretPhrase = new ArrayList<>();
+        for (Integer number : numbers) {
+            if (map.containsKey(number)) {
+                String phrase = map.get(number);
+                secretPhrase.add(phrase);
+            }
+        }
 
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return secretPhrase;
     }
 }

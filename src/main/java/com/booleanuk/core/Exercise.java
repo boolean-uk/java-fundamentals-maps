@@ -58,7 +58,13 @@ public class Exercise extends ExerciseBase {
          in the provided HashMap
      */
 
+        public boolean hasKey(HashMap<String, String> mapOfStrings, String singleElement) {
+            if(mapOfStrings.get(singleElement) == null) {
+                return false;
+            }else
+                return true;
 
+        }
 
     /*
         TODO: 3. Create a method named getValueOrDefault that accepts two parameters:
@@ -90,12 +96,16 @@ public class Exercise extends ExerciseBase {
         map.put(96, "nice");
         // Write your code below this comment...
 
-
-
-
+        ArrayList<String> secrets = new ArrayList<>();
+        for(int number : numbers) {
+            if(map.containsKey(number)){
+                String secretPhrase = map.get(number);
+                secrets.add(secretPhrase);
+            }
+        }
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return secrets;
     }
 }

@@ -48,8 +48,10 @@ public class Exercise extends ExerciseBase {
          in the createPerson method
      */
 
-
-
+    @Override
+    public String getValue(String key) {
+        return createPerson().get(key);
+    }
     /*
         TODO: 2. Create a method named hasKey that accepts two parameters:
          - A HashMap of String, String key value pairs
@@ -58,8 +60,10 @@ public class Exercise extends ExerciseBase {
          in the provided HashMap
      */
 
-
-
+    @Override
+    public boolean hasKey(HashMap<String, String> map, String theKey) {
+        return map.containsKey(theKey);
+    }
     /*
         TODO: 3. Create a method named getValueOrDefault that accepts two parameters:
          - A HashMap of String, Integer key value pairs

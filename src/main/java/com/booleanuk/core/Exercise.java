@@ -2,6 +2,7 @@ package com.booleanuk.core;
 
 import com.booleanuk.helpers.ExerciseBase;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -37,7 +38,6 @@ public class Exercise extends ExerciseBase {
         map.put("firstName", "Nathan");
         map.put("lastName", "King");
         map.put("occupation", "Software Developer");
-
         return map;
     }
 
@@ -49,6 +49,10 @@ public class Exercise extends ExerciseBase {
      */
 
 
+    public String getValue(String theKey) {
+        HashMap <String, String> user = createPerson();
+        return user.get(theKey);
+    }
 
     /*
         TODO: 2. Create a method named hasKey that accepts two parameters:
@@ -57,6 +61,10 @@ public class Exercise extends ExerciseBase {
          The method must return a boolean that represents whether the string provided exists as a key
          in the provided HashMap
      */
+
+    public boolean hasKey(HashMap<String, String> map, String theKey) {
+        return map.containsKey(theKey);
+    }
 
 
 
@@ -68,17 +76,19 @@ public class Exercise extends ExerciseBase {
          or -1 if the string provided is not a key in the HashMap
      */
 
-
+    public int getValueOrDefault(HashMap<String, Integer> map, String theKey) {
+        return map.getOrDefault(theKey, -1);
+    }
 
     /*
-        TODO: 4. Complete the method below
-         Example input & output:
-         .
-         input                       output
-         [42, 6712, 7]           |   ArrayList<String> ["universe", "bass", "muse"]
-         [23, 19, 96, 23, 165]   |   ArrayList<String> ["chicken", "nice", "chicken", "soup"]
-         [918, 71, 88]           |   ArrayList<String> []
-     */
+            TODO: 4. Complete the method below
+             Example input & output:
+             .
+             input                       output
+             [42, 6712, 7]           |   ArrayList<String> ["universe", "bass", "muse"]
+             [23, 19, 96, 23, 165]   |   ArrayList<String> ["chicken", "nice", "chicken", "soup"]
+             [918, 71, 88]           |   ArrayList<String> []
+         */
     public ArrayList<String> buildSecretPhrase(ArrayList<Integer> numbers) {
         // Do not modify the map
         HashMap<Integer, String> map = new HashMap<>();
@@ -89,13 +99,16 @@ public class Exercise extends ExerciseBase {
         map.put(7, "muse");
         map.put(96, "nice");
         // Write your code below this comment...
+        ArrayList<String> output = new ArrayList<>();
+        for (Integer n : numbers) {
+            if(map.containsKey(n)){
+                output.add(map.get(n));
+            }
 
-
-
-
+        }
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return output;
     }
 }

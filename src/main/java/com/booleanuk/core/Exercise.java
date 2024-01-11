@@ -100,7 +100,9 @@ public class Exercise extends ExerciseBase {
         // Write your code below this comment...
         ArrayList<String> list = new ArrayList<>();
         for (Integer number : numbers) {
-            list.add(map.get(number));
+            if (map.containsKey(number)) {
+                list.add(map.get(number));
+            }
         }
 
 

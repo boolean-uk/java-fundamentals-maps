@@ -47,9 +47,10 @@ public class Exercise extends ExerciseBase {
          The method must return the value associated to the provided key from the HashMap created
          in the createPerson method
      */
-
-
-
+    public String getValue(String key) {
+        HashMap<String, String> map = createPerson();
+        return map.get(key);
+    }
     /*
         TODO: 2. Create a method named hasKey that accepts two parameters:
          - A HashMap of String, String key value pairs
@@ -57,9 +58,9 @@ public class Exercise extends ExerciseBase {
          The method must return a boolean that represents whether the string provided exists as a key
          in the provided HashMap
      */
-
-
-
+    public boolean hasKey(HashMap<String, String> map, String key) {
+        return map.containsKey(key);
+    }
     /*
         TODO: 3. Create a method named getValueOrDefault that accepts two parameters:
          - A HashMap of String, Integer key value pairs
@@ -67,9 +68,14 @@ public class Exercise extends ExerciseBase {
          The method must use the string provided to return the integer contained in the provided HashMap,
          or -1 if the string provided is not a key in the HashMap
      */
-
-
-
+    public int getValueOrDefault(HashMap<String, Integer> map, String key) {
+        if (map.containsKey(key)) {
+            return map.get(key);
+        }
+        else {
+            return -1;
+        }
+    }
     /*
         TODO: 4. Complete the method below
          Example input & output:
@@ -89,13 +95,15 @@ public class Exercise extends ExerciseBase {
         map.put(7, "muse");
         map.put(96, "nice");
         // Write your code below this comment...
-
-
-
-
+        ArrayList<String> list = new ArrayList<>();
+        for (Integer number : numbers) {
+            if (map.containsKey(number)) {
+                list.add(map.get(number));
+            }
+        }
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return list;
     }
 }

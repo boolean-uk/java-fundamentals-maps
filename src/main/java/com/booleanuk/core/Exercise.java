@@ -48,6 +48,9 @@ public class Exercise extends ExerciseBase {
          in the createPerson method
      */
 
+    public String getValue(String key) {
+        return createPerson().get(key);
+    }
 
 
     /*
@@ -58,6 +61,9 @@ public class Exercise extends ExerciseBase {
          in the provided HashMap
      */
 
+    public boolean hasKey(HashMap<String, String> map, String key) {
+        return map.containsKey(key);
+    }
 
 
     /*
@@ -68,6 +74,9 @@ public class Exercise extends ExerciseBase {
          or -1 if the string provided is not a key in the HashMap
      */
 
+    public int getValueOrDefault(HashMap<String, Integer> map, String key) {
+        return map.getOrDefault(key, -1);
+    }
 
 
     /*
@@ -89,13 +98,18 @@ public class Exercise extends ExerciseBase {
         map.put(7, "muse");
         map.put(96, "nice");
         // Write your code below this comment...
-
+        ArrayList<String> list = new ArrayList<String>();
+        for (Integer i: numbers) {
+            if (map.containsKey(i)) {
+                list.add(map.get(i));
+            }
+        }
 
 
 
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return list;
     }
 }

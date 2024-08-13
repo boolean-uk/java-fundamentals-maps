@@ -31,6 +31,7 @@ public class Exercise extends ExerciseBase {
         - It returns the HashMap
         https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/util/Map.html
      */
+
     public HashMap<String, String> createPerson() {
         HashMap<String, String> map = new HashMap<>();
 
@@ -47,7 +48,9 @@ public class Exercise extends ExerciseBase {
          The method must return the value associated to the provided key from the HashMap created
          in the createPerson method
      */
-
+    public String getValue(String key) {
+        return  this.createPerson().get(key);
+    }
 
 
     /*
@@ -58,6 +61,9 @@ public class Exercise extends ExerciseBase {
          in the provided HashMap
      */
 
+    public boolean hasKey(HashMap<String, String> hashmap, String key) {
+        return  hashmap.containsKey(key);
+    }
 
 
     /*
@@ -67,7 +73,9 @@ public class Exercise extends ExerciseBase {
          The method must use the string provided to return the integer contained in the provided HashMap,
          or -1 if the string provided is not a key in the HashMap
      */
-
+    public int getValueOrDefault(HashMap<String, Integer> hashmap, String key) {
+        return hashmap.getOrDefault(key, -1);
+    }
 
 
     /*
@@ -89,13 +97,17 @@ public class Exercise extends ExerciseBase {
         map.put(7, "muse");
         map.put(96, "nice");
         // Write your code below this comment...
-
-
-
+        ArrayList<String> list = new ArrayList<>();
+        for(int i=0; i < numbers.size();i++){
+            int num = numbers.get(i);
+            if (map.containsKey(num)) {  // Check if the map contains the number
+                list.add(map.get(num));  // Add the corresponding value to the list
+            }
+        }
 
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return list;
     }
 }

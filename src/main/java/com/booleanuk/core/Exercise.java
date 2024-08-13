@@ -47,7 +47,9 @@ public class Exercise extends ExerciseBase {
          The method must return the value associated to the provided key from the HashMap created
          in the createPerson method
      */
-
+    public String getValue(String k) {
+        return this.createPerson().get(k);
+    }
 
 
     /*
@@ -69,7 +71,6 @@ public class Exercise extends ExerciseBase {
      */
 
 
-
     /*
         TODO: 4. Complete the method below
          Example input & output:
@@ -89,8 +90,6 @@ public class Exercise extends ExerciseBase {
         map.put(7, "muse");
         map.put(96, "nice");
         // Write your code below this comment...
-
-
 
 
         // ...and above this comment

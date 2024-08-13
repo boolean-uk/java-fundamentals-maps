@@ -47,7 +47,9 @@ public class Exercise extends ExerciseBase {
          The method must return the value associated to the provided key from the HashMap created
          in the createPerson method
      */
-
+    public String getValue(String k) {
+        return this.createPerson().get(k);
+    }
 
 
     /*
@@ -57,7 +59,9 @@ public class Exercise extends ExerciseBase {
          The method must return a boolean that represents whether the string provided exists as a key
          in the provided HashMap
      */
-
+    public boolean hasKey(HashMap<String, String> map, String string) {
+        return map.containsKey(string);
+    }
 
 
     /*
@@ -68,17 +72,20 @@ public class Exercise extends ExerciseBase {
          or -1 if the string provided is not a key in the HashMap
      */
 
-
+    public int getValueOrDefault(HashMap<String, Integer> map, String string) {
+        if (map.containsKey(string)) return map.get(string);
+        else return -1;
+    }
 
     /*
-        TODO: 4. Complete the method below
-         Example input & output:
-         .
-         input                       output
-         [42, 6712, 7]           |   ArrayList<String> ["universe", "bass", "muse"]
-         [23, 19, 96, 23, 165]   |   ArrayList<String> ["chicken", "nice", "chicken", "soup"]
-         [918, 71, 88]           |   ArrayList<String> []
-     */
+            TODO: 4. Complete the method below
+             Example input & output:
+             .
+             input                       output
+             [42, 6712, 7]           |   ArrayList<String> ["universe", "bass", "muse"]
+             [23, 19, 96, 23, 165]   |   ArrayList<String> ["chicken", "nice", "chicken", "soup"]
+             [918, 71, 88]           |   ArrayList<String> []
+         */
     public ArrayList<String> buildSecretPhrase(ArrayList<Integer> numbers) {
         // Do not modify the map
         HashMap<Integer, String> map = new HashMap<>();
@@ -90,12 +97,14 @@ public class Exercise extends ExerciseBase {
         map.put(96, "nice");
         // Write your code below this comment...
 
-
-
+        ArrayList<String> toReturn = new ArrayList<>();
+        for (int number : numbers) {
+            if (map.containsKey(number)) toReturn.add(map.get(number));
+        }
 
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return toReturn;
     }
 }

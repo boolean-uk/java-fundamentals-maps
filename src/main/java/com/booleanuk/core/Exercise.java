@@ -48,7 +48,11 @@ public class Exercise extends ExerciseBase {
          in the createPerson method
      */
 
-
+    @Override
+    public String getValue(String key) {
+        HashMap<String, String> newHashMap = createPerson();
+        return newHashMap.get(key);
+    }
 
     /*
         TODO: 2. Create a method named hasKey that accepts two parameters:
@@ -58,7 +62,10 @@ public class Exercise extends ExerciseBase {
          in the provided HashMap
      */
 
-
+    @Override
+    public boolean hasKey(HashMap<String, String> map, String theKey) {
+        return map.containsKey(theKey);
+    }
 
     /*
         TODO: 3. Create a method named getValueOrDefault that accepts two parameters:
@@ -68,17 +75,23 @@ public class Exercise extends ExerciseBase {
          or -1 if the string provided is not a key in the HashMap
      */
 
-
+    @Override
+    public int getValueOrDefault(HashMap<String, Integer> map, String theKey) {
+        if (map.containsKey(theKey)) {
+            return map.get(theKey);
+        }
+        return -1;
+    }
 
     /*
-        TODO: 4. Complete the method below
-         Example input & output:
-         .
-         input                       output
-         [42, 6712, 7]           |   ArrayList<String> ["universe", "bass", "muse"]
-         [23, 19, 96, 23, 165]   |   ArrayList<String> ["chicken", "nice", "chicken", "soup"]
-         [918, 71, 88]           |   ArrayList<String> []
-     */
+            TODO: 4. Complete the method below
+             Example input & output:
+             .
+             input                       output
+             [42, 6712, 7]           |   ArrayList<String> ["universe", "bass", "muse"]
+             [23, 19, 96, 23, 165]   |   ArrayList<String> ["chicken", "nice", "chicken", "soup"]
+             [918, 71, 88]           |   ArrayList<String> []
+         */
     public ArrayList<String> buildSecretPhrase(ArrayList<Integer> numbers) {
         // Do not modify the map
         HashMap<Integer, String> map = new HashMap<>();
@@ -90,12 +103,17 @@ public class Exercise extends ExerciseBase {
         map.put(96, "nice");
         // Write your code below this comment...
 
+        ArrayList<String> output = new ArrayList<>();
 
-
+        for (Integer number : numbers) {
+            if (map.containsKey(number)) {
+                output.add(map.get(number));
+            }
+        }
 
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return output;
     }
 }

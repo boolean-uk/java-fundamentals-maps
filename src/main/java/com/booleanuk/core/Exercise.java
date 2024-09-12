@@ -48,7 +48,9 @@ public class Exercise extends ExerciseBase {
          in the createPerson method
      */
 
-
+    public String getValue(String key) {
+        return createPerson().get(key);
+    }
 
     /*
         TODO: 2. Create a method named hasKey that accepts two parameters:
@@ -58,9 +60,11 @@ public class Exercise extends ExerciseBase {
          in the provided HashMap
      */
 
+    public boolean hasKey(HashMap<String, String> map, String theKey) {
+        return map.containsKey(theKey);
+    }
 
-
-    /*
+/*
         TODO: 3. Create a method named getValueOrDefault that accepts two parameters:
          - A HashMap of String, Integer key value pairs
          - A string
@@ -68,17 +72,19 @@ public class Exercise extends ExerciseBase {
          or -1 if the string provided is not a key in the HashMap
      */
 
-
+    public int getValueOrDefault(HashMap<String, Integer> map, String theKey) {
+        return map.getOrDefault(theKey, -1);
+    }
 
     /*
-        TODO: 4. Complete the method below
-         Example input & output:
-         .
-         input                       output
-         [42, 6712, 7]           |   ArrayList<String> ["universe", "bass", "muse"]
-         [23, 19, 96, 23, 165]   |   ArrayList<String> ["chicken", "nice", "chicken", "soup"]
-         [918, 71, 88]           |   ArrayList<String> []
-     */
+            TODO: 4. Complete the method below
+             Example input & output:
+             .
+             input                       output
+             [42, 6712, 7]           |   ArrayList<String> ["universe", "bass", "muse"]
+             [23, 19, 96, 23, 165]   |   ArrayList<String> ["chicken", "nice", "chicken", "soup"]
+             [918, 71, 88]           |   ArrayList<String> []
+         */
     public ArrayList<String> buildSecretPhrase(ArrayList<Integer> numbers) {
         // Do not modify the map
         HashMap<Integer, String> map = new HashMap<>();
@@ -90,12 +96,18 @@ public class Exercise extends ExerciseBase {
         map.put(96, "nice");
         // Write your code below this comment...
 
+        ArrayList<String> words = new ArrayList<>();
 
-
+        for (Integer number: numbers) {
+            String word = map.get(number);
+            if(word != null) {
+                words.add(word);
+            }
+        }
 
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return words;
     }
 }

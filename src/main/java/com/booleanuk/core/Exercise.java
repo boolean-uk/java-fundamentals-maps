@@ -48,8 +48,11 @@ public class Exercise extends ExerciseBase {
          in the createPerson method
      */
 
-
-
+    @Override
+    public String getValue(String key) {
+        String out = createPerson().get(key);
+        return out ;
+    }
     /*
         TODO: 2. Create a method named hasKey that accepts two parameters:
          - A HashMap of String, String key value pairs
@@ -58,8 +61,14 @@ public class Exercise extends ExerciseBase {
          in the provided HashMap
      */
 
-
-
+    @Override
+    public boolean hasKey(HashMap<String, String> map, String theKey) {
+       boolean sjekk=false;
+       if (map.containsKey(theKey)){
+           sjekk=true;
+       }
+        return sjekk;
+    }
     /*
         TODO: 3. Create a method named getValueOrDefault that accepts two parameters:
          - A HashMap of String, Integer key value pairs
@@ -68,17 +77,26 @@ public class Exercise extends ExerciseBase {
          or -1 if the string provided is not a key in the HashMap
      */
 
-
+    @Override
+    public int getValueOrDefault(HashMap<String, Integer> map, String theKey) {
+        int value=0;
+        if (map.containsKey(theKey)){
+            value = map.get(theKey);
+        }else {
+            value=-1;
+        }
+        return value;
+    }
 
     /*
-        TODO: 4. Complete the method below
-         Example input & output:
-         .
-         input                       output
-         [42, 6712, 7]           |   ArrayList<String> ["universe", "bass", "muse"]
-         [23, 19, 96, 23, 165]   |   ArrayList<String> ["chicken", "nice", "chicken", "soup"]
-         [918, 71, 88]           |   ArrayList<String> []
-     */
+            TODO: 4. Complete the method below
+             Example input & output:
+             .
+             input                       output
+             [42, 6712, 7]           |   ArrayList<String> ["universe", "bass", "muse"]
+             [23, 19, 96, 23, 165]   |   ArrayList<String> ["chicken", "nice", "chicken", "soup"]
+             [918, 71, 88]           |   ArrayList<String> []
+         */
     public ArrayList<String> buildSecretPhrase(ArrayList<Integer> numbers) {
         // Do not modify the map
         HashMap<Integer, String> map = new HashMap<>();
@@ -89,13 +107,21 @@ public class Exercise extends ExerciseBase {
         map.put(7, "muse");
         map.put(96, "nice");
         // Write your code below this comment...
+        String temp="";
+        ArrayList<String> newArr = new ArrayList<>();
 
+        for(int i = 0; i<numbers.size(); i++){
+            if (map.containsKey(numbers.get(i))){
+                temp = map.get(numbers.get(i));
+                newArr.add(temp);
+            }
+        }
 
 
 
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return newArr;
     }
 }

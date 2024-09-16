@@ -4,6 +4,7 @@ import com.booleanuk.helpers.ExerciseBase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.stream.Collectors;
 
 public class Exercise extends ExerciseBase {
     /*
@@ -48,7 +49,9 @@ public class Exercise extends ExerciseBase {
          in the createPerson method
      */
 
-
+    public String getValue(String key) {
+        return createPerson().get(key);
+    }
 
     /*
         TODO: 2. Create a method named hasKey that accepts two parameters:
@@ -57,6 +60,11 @@ public class Exercise extends ExerciseBase {
          The method must return a boolean that represents whether the string provided exists as a key
          in the provided HashMap
      */
+
+    public boolean hasKey(HashMap<String, String> map, String item) {
+        return map.containsKey(item);
+    }
+
 
 
 
@@ -68,6 +76,14 @@ public class Exercise extends ExerciseBase {
          or -1 if the string provided is not a key in the HashMap
      */
 
+    public int getValueOrDefault(HashMap<String, Integer> map, String item) {
+        if (map.containsKey(item)) {
+            return map.get(item);
+        }
+
+        return -1;
+
+    }
 
 
     /*
@@ -91,11 +107,25 @@ public class Exercise extends ExerciseBase {
         // Write your code below this comment...
 
 
+        ArrayList<String> contentHolder = new ArrayList<>();
+        for (int i = 0; i < numbers.size(); i++) {
+//            System.out.println(map.get(numbers.get(i)));
 
+            if (map.get(numbers.get(i)) != null) {
+                contentHolder.add(map.get(numbers.get(i)));
+
+            }
+
+
+
+        }
+
+        System.out.println(contentHolder);
+        System.out.println(contentHolder.size()); // Why do I still get 3 as value for the last caller?
 
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return contentHolder;
     }
 }

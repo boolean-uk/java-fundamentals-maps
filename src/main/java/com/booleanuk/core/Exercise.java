@@ -2,6 +2,7 @@ package com.booleanuk.core;
 
 import com.booleanuk.helpers.ExerciseBase;
 
+import java.security.cert.CRLReason;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -48,7 +49,12 @@ public class Exercise extends ExerciseBase {
          in the createPerson method
      */
 
+    public String getValue(String s){
+        HashMap<String, String> map = new HashMap<>();
 
+        map = createPerson();
+        return map.get(s);
+    }
 
     /*
         TODO: 2. Create a method named hasKey that accepts two parameters:
@@ -57,7 +63,9 @@ public class Exercise extends ExerciseBase {
          The method must return a boolean that represents whether the string provided exists as a key
          in the provided HashMap
      */
-
+    public boolean hasKey(HashMap<String, String> map, String s){
+        return map.containsKey(s);
+    }
 
 
     /*
@@ -67,7 +75,11 @@ public class Exercise extends ExerciseBase {
          The method must use the string provided to return the integer contained in the provided HashMap,
          or -1 if the string provided is not a key in the HashMap
      */
+    public int getValueOrDefault(HashMap<String, Integer> map, String s){
+        if(map.get(s)!=null)  return map.get(s);
 
+        return -1;
+    }
 
 
     /*
@@ -90,12 +102,19 @@ public class Exercise extends ExerciseBase {
         map.put(96, "nice");
         // Write your code below this comment...
 
+        ArrayList<String> list = new ArrayList<>();
+
+        for (int i = 0; i < numbers.size(); i++){
+            if(map.containsKey(numbers.get(i))) {
+                list.add(map.get(numbers.get(i)));
+            }
+        }
 
 
 
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return list;
     }
 }

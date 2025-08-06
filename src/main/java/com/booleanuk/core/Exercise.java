@@ -4,6 +4,7 @@ import com.booleanuk.helpers.ExerciseBase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Exercise extends ExerciseBase {
     /*
@@ -48,7 +49,9 @@ public class Exercise extends ExerciseBase {
          in the createPerson method
      */
 
-
+    public String getValue(String key) {
+        return createPerson().get(key);
+    }
 
     /*
         TODO: 2. Create a method named hasKey that accepts two parameters:
@@ -58,7 +61,10 @@ public class Exercise extends ExerciseBase {
          in the provided HashMap
      */
 
+    public boolean hasKey(HashMap<String, String> map, String key) {
 
+        return map.containsKey(key);
+    }
 
     /*
         TODO: 3. Create a method named getValueOrDefault that accepts two parameters:
@@ -68,6 +74,12 @@ public class Exercise extends ExerciseBase {
          or -1 if the string provided is not a key in the HashMap
      */
 
+    public int getValueOrDefault(HashMap<String, Integer> map, String key){
+        if(map.get(key)!=null)
+            return map.get(key);
+        else
+            return -1;
+    }
 
 
     /*
@@ -90,12 +102,15 @@ public class Exercise extends ExerciseBase {
         map.put(96, "nice");
         // Write your code below this comment...
 
-
-
+        ArrayList<String> liste = new ArrayList<>();
+        for (int i = 0; i < numbers.size() ; i++) {
+            if(map.get(numbers.get(i))!=null)
+                liste.add(map.get(numbers.get(i)));
+        }
 
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return liste;
     }
 }

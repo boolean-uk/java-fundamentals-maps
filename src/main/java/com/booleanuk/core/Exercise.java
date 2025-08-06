@@ -47,7 +47,10 @@ public class Exercise extends ExerciseBase {
          The method must return the value associated to the provided key from the HashMap created
          in the createPerson method
      */
-
+    public String getValue(String str){
+        HashMap<String, String> map = createPerson();
+        return map.get(str);
+    }
 
 
     /*
@@ -57,7 +60,9 @@ public class Exercise extends ExerciseBase {
          The method must return a boolean that represents whether the string provided exists as a key
          in the provided HashMap
      */
-
+    public boolean hasKey(HashMap<String, String> map, String str){
+        return map.containsKey(str);
+    }
 
 
     /*
@@ -67,7 +72,12 @@ public class Exercise extends ExerciseBase {
          The method must use the string provided to return the integer contained in the provided HashMap,
          or -1 if the string provided is not a key in the HashMap
      */
-
+    public int getValueOrDefault(HashMap<String, Integer> map, String str){
+        if(map.containsKey(str)){
+            return map.get(str);
+        }
+        return -1;
+    }
 
 
     /*
@@ -90,12 +100,15 @@ public class Exercise extends ExerciseBase {
         map.put(96, "nice");
         // Write your code below this comment...
 
-
-
-
+        ArrayList<String> resultList = new ArrayList<>();
+        for(int i = 0; i < numbers.size(); i++) {
+            if (map.containsKey(numbers.get(i))) {
+                resultList.add(map.get(numbers.get(i)));
+            }
+        }
         // ...and above this comment
 
         // Change the return statement below to return your actual ArrayList
-        return new ArrayList<String>();
+        return resultList;
     }
 }

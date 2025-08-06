@@ -70,12 +70,8 @@ public class Exercise extends ExerciseBase {
          or -1 if the string provided is not a key in the HashMap
      */
     public int getValueOrDefault(HashMap<String, Integer> map, String theKey) {
-        if (map.containsKey(theKey)){
-            return map.get(theKey);
-        }
-        else{
-            return -1;
-        }
+        return map.getOrDefault(theKey, -1);
+
     }
 
     /*
